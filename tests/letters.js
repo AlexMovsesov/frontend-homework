@@ -53,4 +53,16 @@ QUnit.module('Тестируем функцию letters', function () {
 		assert.strictEqual(letters('от топота копыт', false), 'а копыт');
 		assert.strictEqual(letters('hello world', false), 'he world');
 	});
+
+	QUnit.test('Общий тест', function(assert){
+		assert.strictEqual(letters('Lorem Ipsum is simply dummy text of the printing and typesetting industry.',true),
+			'Lorem Ipsuilydtxfhnga.');
+		assert.strictEqual(letters('Lorem Ipsum.',false),
+				'Lore Ipsum.');
+	});
+
+	QUnit.test('Учитывание регистра', function(assert){
+		assert.strictEqual(letters('Lorem lorem'),'L l');
+	});
+
 });

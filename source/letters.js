@@ -17,16 +17,10 @@ const isUnique = (symbol, index, arr, holdFirst) => {
 };
 
 const letters = (message, isHold) => {
-  const symbolsArr = [...message];
-  const symbols = isHold === false ?
-    symbolsArr.reverse() :
-    symbolsArr;
+  const symbolsArr = isHold === false ? [...message].reverse() : [...message];
   const holdFirst = isHold === undefined ? false : true;
-
-  return symbolsArr.filter((symbol, index, origSymbolsArr) => {
-    index = is_hold === false ?
-      (origSymbolsArr.length - 1) - index :
-      index;
-    return isUnique(symbol, index, symbols, holdFirst);
+  return [...message].filter((symbol, index) => {
+    index = isHold === false ? symbolsArr.length - 1 - index : index;
+    return isUnique(symbol, index, symbolsArr, holdFirst);
   }).join("");
 };

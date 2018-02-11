@@ -65,4 +65,10 @@ QUnit.module('Тестируем функцию letters', function () {
 		assert.strictEqual(letters('Lorem lorem'),'L l');
 	});
 
+	QUnit.test('Удаляет повторы только внутри слова', function(assert){
+		assert.strictEqual(letters('javascript'),'jvscript');
+		assert.strictEqual(letters('java'),'jv');
+		assert.strictEqual(letters('bytecode'),'bytcod');
+		assert.strictEqual(letters('java\'s bytecode'),"jv's bytcod");
+	});
 });
